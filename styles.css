@@ -1,0 +1,201 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("imagenes/Fondo.jpeg") center/cover fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: -1;
+}
+
+/* ================= CONTENEDOR ================= */
+.container {
+  max-width: 900px;
+  width: 100%;
+  padding: 25px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  border-top: 6px solid #8f0000;
+}
+
+/* ================= HEADER ================= */
+.header-titulo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 70px;
+}
+
+.header-titulo h1 {
+  margin: 0;
+  color: #8f0000;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+/* ================= FIELDSET ================= */
+fieldset {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 25px 20px 20px;
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  overflow: hidden; /* 👈 evita desbordes */
+}
+
+/* ================= LEGEND ================= */
+legend {
+  padding: 6px 14px;
+  background: #8f0000;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ================= LABEL ================= */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* ================= INPUTS GENERALES ================= */
+input,
+select {
+  width: 100%;
+  padding: 9px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  margin-top: 6px;
+}
+
+/* ================= TABLA RESPONSIVE ================= */
+.tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* TABLA */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* 👈 CLAVE ABSOLUTA */
+  margin-top: 10px;
+}
+
+/* CELDAS */
+th,
+td {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 6px;
+  text-align: center;
+  overflow: hidden; /* 👈 evita que empuje */
+  white-space: nowrap;
+}
+
+th {
+  background: #8f0000;
+  color: white;
+  font-size: 14px;
+}
+
+/* INPUTS DENTRO DE TABLA */
+table input {
+  width: 100%;
+  max-width: 45px;     /* 👈 controla el ancho real */
+  padding: 4px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* ================= TOTAL ================= */
+.total {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* ================= BOTÓN ================= */
+button {
+  width: 100%;
+  padding: 15px;
+  background: #8f0000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ================= 📱 MÓVIL ================= */
+@media (max-width: 480px) {
+
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    overflow-x: hidden;
+  }
+
+  .header-titulo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 60px;
+  }
+
+  .header-titulo h1 {
+    font-size: 18px;
+  }
+
+  /* 👇 Scroll solo para la tabla */
+  .tabla-responsive table {
+    min-width: 700px;
+  }
+
+  th,
+  td {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  table input {
+    max-width: 38px;
+    padding: 3px;
+  }
+
+  input,
+  select {
+    padding: 7px;
+    font-size: 14px;
+  }
+}
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte Diario - Inventario Avícola</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- jsPDF AutoTable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header-titulo">
+      <img src="imagenes/Logo.jpg" alt="Logo Don Rocco" class="logo">
+      <h1>Reporte Diario de Inventario Don Rocco</h1>
+    </div>
+
+    <form id="formReporte">
+
+      <!-- DATOS GENERALES -->
+      <fieldset>
+        <legend>Datos Generales</legend>
+
+        <label>
+          Fecha
+          <input type="date" id="fecha">
+        </label>
+
+        <label>
+          Tipo de Galpón
+          <select id="tipoGalpon">
+            <option value="">Seleccione</option>
+            <option value="Hembras">Hembras</option>
+            <option value="Machos">Machos</option>
+          </select>
+        </label>
+
+        <label>
+          Galpón
+          <select id="galpon">
+            <option value="">Seleccione</option>
+            <option>G6</option>
+            <option>G5</option>
+            <option>G4</option>
+            <option>G7A</option>
+            <option>G7B</option>
+            <option>G8A</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <!-- MORTALIDAD -->
+     <fieldset>
+  <legend>Mortalidad por Cerco</legend>
+
+  <div class="tabla-responsive">
+    <table id="tablaCercos">
+      <thead>
+        <tr>
+          <th>Galpón</th>
+          <th>C1</th>
+          <th>C2</th>
+          <th>C3</th>
+          <th>C4</th>
+          <th>C5</th>
+          <th>C6</th>
+          <th>C7</th>
+          <th>C8</th>
+          <th>C9</th>
+          <th>C10</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- filas -->
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Total de Muertes:</strong>
+    <span id="totalMuertes">0</span>
+  </p>
+</fieldset>
+
+
+      <!-- AVES -->
+      <fieldset>
+        <legend>Cantidad Total de Aves</legend>
+
+        <table border="1">
+          <tr>
+            <td>G6</td>
+            <td><input type="number" id="aves_g6"></td>
+          </tr>
+          <tr>
+            <td>G5</td>
+            <td><input type="number" id="aves_g5"></td>
+          </tr>
+          <tr>
+            <td>G4</td>
+            <td><input type="number" id="aves_g4"></td>
+          </tr>
+          <tr>
+            <td>G7A</td>
+            <td><input type="number" id="aves_g7a"></td>
+          </tr>
+          <tr>
+            <td>G7B</td>
+            <td><input type="number" id="aves_g7b"></td>
+          </tr>
+          <tr>
+            <td>G8A</td>
+            <td><input type="number" id="aves_g8a"></td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <!-- INVENTARIO INICIADOR -->
+      <fieldset>
+        <legend>Inventario de Alimento – INICIADOR</legend>
+
+        <table border="1">
+          <tr>
+            <th>Entrada</th>
+            <th>Inicial</th>
+            <th>Consumo</th>
+            <th>Final</th>
+          </tr>
+          <tr>
+            <td><input type="number" id="ini_entrada"></td>
+            <td><input type="number" id="ini_inicial"></td>
+            <td><input type="number" id="ini_consumo"></td>
+            <td><input type="number" id="ini_final"></td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <!-- INVENTARIO GRANULADO -->
+      <fieldset>
+        <legend>Inventario de Alimento – GRANULADO</legend>
+
+        <table border="1">
+          <tr>
+            <th>Entrada</th>
+            <th>Inicial</th>
+            <th>Consumo</th>
+            <th>Final</th>
+          </tr>
+          <tr>
+            <td><input type="number" id="gra_entrada"></td>
+            <td><input type="number" id="gra_inicial"></td>
+            <td><input type="number" id="gra_consumo"></td>
+            <td><input type="number" id="gra_final"></td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <!-- INVENTARIO GRANULADO 2 -->
+      <fieldset>
+        <legend>Inventario de Alimento – GRANULADO 2</legend>
+
+        <table border="1">
+          <tr>
+            <th>Entrada</th>
+            <th>Inicial</th>
+            <th>Consumo</th>
+            <th>Final</th>
+          </tr>
+          <tr>
+            <td><input type="number" id="gra2_entrada"></td>
+            <td><input type="number" id="gra2_inicial"></td>
+            <td><input type="number" id="gra2_consumo"></td>
+            <td><input type="number" id="gra2_final"></td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <button type="button" onclick="generarPDF()">Generar PDF</button>
+
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
